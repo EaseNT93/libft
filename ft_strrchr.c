@@ -14,16 +14,21 @@
 
 char	*strrchr(const char *str, int s)
 {
-	char	tmp;
-	int		i;
+	char	*tmp_str;
+	char	*tmp;
+	char	tmp_s;
 
-	i = 0;
-	tmp = NULL;
-	while (*str)
+	tmp_str = (char *)str;
+	tmp = 0;
+	tmp_s = (char)s;
+	while (*tmp_str)
 	{
-		if (*str == s)
-			tmp = *str;
-		str++;
+		if (*tmp_str == tmp_s)
+			tmp = tmp_str;
+		tmp_str++;
 	}
-	return (tmp);
+	if(tmp)
+		return (tmp);
+	else
+		return (NULL);
 }

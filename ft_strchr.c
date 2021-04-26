@@ -14,11 +14,16 @@
 
 char	*strchr(const char *str, int s)
 {
-	while (*str)
+	char	*tmp_str;
+	char	tmp_s;
+
+	tmp_str = (char *)str;
+	tmp_s = (char)s;
+	while (*tmp_str)
 	{
-		if (*str == s)
-			return (str);
-		str++;
+		if (*tmp_str == tmp_s)
+			return (tmp_str);
+		tmp_str++;
 	}
 	return (NULL);
 }
