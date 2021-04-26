@@ -12,11 +12,17 @@
 
 NAME = libft.a
 
-SRCS = 
+SRC = ft_bzero.c\
+	ft_memccpy.c\
+	ft_memcpy.c\
+	ft_memset.c\
+	ft_strchr.c\
+	ft_strlen.c\
+	ft_strrchr.c
 
-OBJS = ${SRCS:.c=.o}
+OBJ = ${SRC:.c=.o}
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 CC = gcc
 
@@ -26,12 +32,16 @@ RM = rm -f
 all: ${NAME}
 
 
-${NAME}: ${OBJS}
-		ar rc ${NAME} ${OBJS}
-		${GCC} ${CFLAGS} ${SRCS} -o ${NAME} -I includes
+${NAME}: ${OBJ}
+		ar rc ${NAME} ${OBJ}
+		${CC} ${CFLAGS} ${SRC} -o ${NAME} -I includes
+
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	gcc -shared -o libft.so $(OBJ)
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJ}
 
 fclean: clean
 		${RM} ${NAME}
