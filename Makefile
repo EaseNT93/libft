@@ -33,7 +33,7 @@ all: ${NAME}
 
 
 ${NAME}: ${OBJ}
-		ar rc ${NAME} ${OBJ}
+		ar -rc ${NAME} ${OBJ}
 		${CC} ${CFLAGS} ${SRC} -o ${NAME} -I includes
 
 so:
