@@ -28,9 +28,7 @@ CC = gcc
 
 RM = rm -f
 
-
 all: ${NAME}
-
 
 ${NAME}: ${OBJ}
 		${CC} ${CFLAGS} ${SRC}
@@ -40,8 +38,6 @@ ${NAME}: ${OBJ}
 so:
 	$(CC) -fPIC $(CFLAGS) $(SRC)
 	gcc -shared -o libft.so $(OBJ)
-
-
 
 clean:
 		${RM} ${OBJ}
