@@ -15,14 +15,14 @@ NAME = libft.a
 SRC = ft_bzero.c\
 	ft_memccpy.c\
 	ft_memcpy.c\
-	ft_memset.c\
 	ft_strchr.c\
 	ft_strlen.c\
-	ft_strrchr.c
+	ft_strrchr.c\
+	ft_memset.c
 
 OBJ = ${SRC:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
 
 CC = gcc
 
@@ -33,8 +33,9 @@ all: ${NAME}
 
 
 ${NAME}: ${OBJ}
-		ar -rc ${NAME} ${OBJ}
-		${CC} ${CFLAGS} ${SRC} -o ${NAME} -I includes
+		${CC} ${CFLAGS} ${SRC}
+		ar rc $(NAME)
+		ranlib $(NAME)
 
 so:
 	$(CC) -fPIC $(CFLAGS) $(SRC)

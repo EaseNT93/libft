@@ -17,4 +17,13 @@
 # include <stdlib.h>
 # include <string.h>
 
+void	ft_bzero(void *str, size_t n);
+void	*ft_memccpy(void *dest, const void *src, int s, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memset(void *str, int s, size_t n);
+char	*strchr(const char *str, int s);
+size_t	ft_strlen(const char *str);
+char	*strrchr(const char *str, int s);
+
+
 #endif
