@@ -22,7 +22,7 @@ SRC = ft_bzero.c\
 
 OBJ = ${SRC:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
 
 CC = gcc
 
@@ -33,12 +33,15 @@ all: ${NAME}
 
 
 ${NAME}: ${OBJ}
-		ar -rc ${NAME} ${OBJ}
-		${CC} ${CFLAGS} ${SRC} -o ${NAME} -I includes
-
+		${CC} ${CFLAGS} ${SRC}
+		ar rc $(NAME)
+		ranlib $(NAME)
+		
 so:
 	$(CC) -fPIC $(CFLAGS) $(SRC)
 	gcc -shared -o libft.so $(OBJ)
+
+
 
 clean:
 		${RM} ${OBJ}
