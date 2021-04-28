@@ -18,7 +18,10 @@ SRC = ft_bzero.c\
 	ft_memset.c\
 	ft_strchr.c\
 	ft_strlen.c\
-	ft_strrchr.c
+	ft_strrchr.c\
+	ft_memcmp.c\
+	ft_memchr.c\
+	ft_memmove.c
 
 OBJ = ${SRC:.c=.o}
 
