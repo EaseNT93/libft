@@ -27,8 +27,8 @@ char	*ft_strrchr(const char *str, int s); /* fail with \0 */
 void	*ft_memmove(void *dest, const void *src, size_t n); /* undone */
 void	*ft_memchr(const void *str, int s, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-size_t	ft_strlcpy(char *dest, const char *src, size_t n);
-size_t	ft_strlcat(char *dest, const char *src, size_t n);
-char	*ft_strnstr(const char *src, const char *tofind, size_t n);
+size_t	ft_strlcpy(char *dest, const char *src, size_t n); /* fail */
+size_t	ft_strlcat(char *dest, const char *src, size_t n); /* fail */
+char	*ft_strnstr(const char *src, const char *tofind, size_t n); /* fail */
 
 #endif
