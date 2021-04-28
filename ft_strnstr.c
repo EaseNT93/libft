@@ -26,7 +26,7 @@ char	*ft_strnstr(const char *src, const char *tofind, size_t n)
 		while (src[i + j] == tofind[j])
 			j++;
 		if (!tofind[j] && (i + j) < n)
-			return (src[i]);
+			return ((char *)src + i);
 		i++;
 	}
 	return (NULL);
