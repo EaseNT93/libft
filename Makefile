@@ -26,7 +26,14 @@ SRC = ft_bzero.c\
 	ft_strlcat.c\
 	ft_strnstr.c\
 	ft_strnncmp.c\
-	ft_atoi.c
+	ft_atoi.c\
+	ft_isalpha.c\
+	ft_isdigit.c\
+	ft_isalnum.c\
+	ft_isascii.c\
+	ft_isprint.c\
+	ft_toupper.c\
+	ft_tolower.c
 
 OBJ = ${SRC:.c=.o}
 
