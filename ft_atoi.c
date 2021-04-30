@@ -14,15 +14,13 @@
 
 int		ft_atoi(const char *str)
 {
-	int		n;
-	int		s;
+	unsigned	long	n;
+	int					s;
 
 	n = 0;
 	s = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n')
-	{
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
-	}
 	if (*str == '-')
 	{
 		str++;
@@ -35,5 +33,5 @@ int		ft_atoi(const char *str)
 		n = (*str - '0') + n * 10;
 		str++;
 	}
-	return (n);
+	return ((int)n * s);
 }
