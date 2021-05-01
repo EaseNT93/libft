@@ -23,10 +23,12 @@ char	*ft_strnstr(const char *src, const char *tofind, size_t n)
 	while (i < n && src[i])
 	{
 		j = 0;
-		while (src[i + j] == tofind[j])
+		while (src[i + j] == tofind[j] && (i + j) < n)
+		{
 			j++;
-		if (!tofind[j] && (i + j) < n)
-			return ((char *)src + i);
+			if (!tofind[j])
+				return ((char *)src + i);
+		}
 		i++;
 	}
 	return (NULL);
