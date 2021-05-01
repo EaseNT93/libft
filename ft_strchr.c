@@ -17,10 +17,10 @@ char	*ft_strchr(const char *str, int s)
 	while (*str)
 	{
 		if (*str == s)
-			return (str);
+			return ((char*)str);
 		str++;
 	}
 	if (s == '\0')
-		return (str);
+		return ((char*)str);
 	return (NULL);
 }
