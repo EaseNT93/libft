@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpants <dpants@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/27 19:51:12 by dpants            #+#    #+#             */
-/*   Updated: 2021/04/27 19:51:12 by dpants           ###   ########.fr       */
+/*   Created: 2021/04/29 12:04:15 by dpants            #+#    #+#             */
+/*   Updated: 2021/04/29 12:04:15 by dpants           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strdup(const char *str)
 {
-	unsigned	char	*tmp_d;
-	unsigned	char	*tmp_s;
-
-	tmp_d = (unsigned char *)dest;
-	tmp_s = (unsigned char *)src;
-	if (dest < src)
-		while (n--)
-			*tmp_d++ = *tmp_s++;
-	else
-		while (n--)
-			*(tmp_d + n) = *(tmp_s + n);
-	return (tmp_d);
+	
 }
