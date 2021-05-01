@@ -14,18 +14,18 @@
 
 char	*ft_strdup(const char *str)
 {
-	char    *new_str;
-    size_t  i;
+	char	*new_str;
+	size_t	i;
 
-    i = 0;
-    new_str = (char*)malloc(sizeof(char) * ft_strlen(str) + 1);
-    if (NULL == new_str)
-        return (NULL);
-    while (i < ft_strlen(str))
-    {
-        new_str[i] = str[i];
-        i++;
-    }
-    new_str[i] = '\0';
-    return (new_str);
+	i = 0;
+	new_str = (char*)malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (NULL == new_str)
+		return (NULL);
+	while (i < ft_strlen(str))
+	{
+		new_str[i] = str[i];
+		i++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
 }
