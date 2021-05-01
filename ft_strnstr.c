@@ -18,8 +18,8 @@ char	*ft_strnstr(const char *src, const char *tofind, size_t n)
 	size_t	j;
 
 	i = 0;
-	if (!src || !tofind)
-		return (NULL);
+	if (*tofind == '\0')
+		return ((char*)src);
 	while (i < n && src[i])
 	{
 		j = 0;
