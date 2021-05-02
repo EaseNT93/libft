@@ -12,29 +12,42 @@
 
 #include "libft.h"
 
+int		ft_nlen(int n)
+{
+	int		l;
+
+	l = 0;
+	while (n >= 0)
+	{
+		l++;
+		n /= 10;
+		if (n == 0)
+			return (l);
+	}
+	return (l);
+}
+
 char	*ft_itoa(int n)
 {
-	char	*str;
+	char	str[12];
 	int		i;
-	int		tmp_n;
 
 	i = 0;
 	if (n == -2147483648)
-		return (ft_strdup('-2147483648'));
-	tmp_n = n;
-	while (tmp_n)
-	{
-		i++;
-		tmp_n /= 10;
-	}
+		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
-		str[0] = '-';
-		i++;
+		str[i++] = '-';
 		n = -n;
 	}
-	str[i + 1] = '\0';
-	while (n)
-		str[i--] = (n / 10) + '0';
+	i += ft_nlen(n);
+	str[i--] = '\0';
+	while (n >= 0)
+	{
+		str[i--] = (n % 10) + '0';
+		n /= 10;
+		if (n == 0)
+			return (ft_strdup(str));
+	}
 	return (ft_strdup(str));
 }
