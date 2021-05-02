@@ -22,20 +22,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	j = 0;
 	if (!s1)
 		return (NULL);
-	new_str = (char *)malloc(sizeof(char) + ft_strlen(s1) + 1);
-	if (NULL == new_str)
-		return (NULL);
-	while (*s1)
-	{
-		if (!ft_strncmp(s1, set, ft_strlen(set)))
-			s1 += ft_strlen(set);
-		else
-		{
-			*new_str = *s1;
-			new_str++;
-			s1++;
-		}
-	}
-	*new_str = '\0';
-	return (&new_str[0]);
+	while (ft_strchr(set, s1[i]))
+		i++;
+	while (ft_strchr(set, s1[ft_strlen(s1) + j]))
+		j--;
+	new_str = ft_substr(s1, i, ft_strlen(s1) + j);
+	return (new_str);
 }
