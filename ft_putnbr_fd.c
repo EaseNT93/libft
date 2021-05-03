@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_nlen(int n)
+int		ft_intnlen(int n)
 {
 	int		l;
 
@@ -29,5 +29,28 @@ int		ft_nlen(int n)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, ft_itoa(n), ft_nlen(n));
+	char	str[12];
+	int		i;
+
+	i = 0;
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else
+	{
+		if (n < 0)
+		{
+			str[i++] = '-';
+			n = -n;
+		}
+		i += ft_intnlen(n);
+		str[i--] = '\0';
+		while (n >= 0)
+		{
+			str[i--] = (n % 10) + '0';
+			n /= 10;
+			if (n == 0)
+				break ;
+		}
+		write(fd, str, 11);
+	}
 }
