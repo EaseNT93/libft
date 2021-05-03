@@ -23,7 +23,7 @@ void	*ft_memccpy(void *dest, const void *src, int s, size_t n)
 	tmp_d = (unsigned char *)dest;
 	tmp_s = (unsigned char *)src;
 	tmp_smb = (unsigned char)s;
-	while(i < n)
+	while (i < n)
 	{
 		*tmp_d++ = *tmp_s++;
 		i++;

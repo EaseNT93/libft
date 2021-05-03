@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpants <dpants@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/22 18:22:35 by dpants            #+#    #+#             */
-/*   Updated: 2021/04/22 18:22:35 by dpants           ###   ########.fr       */
+/*   Created: 2021/04/29 12:04:15 by dpants            #+#    #+#             */
+/*   Updated: 2021/04/29 12:04:15 by dpants           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strdup(const char *str)
 {
-	size_t			i;
-	unsigned char	*tmp_d;
-	unsigned char	*tmp_s;
+	char	*new_str;
+	size_t	i;
 
 	i = 0;
-	tmp_d = (unsigned char *)dest;
-	tmp_s = (unsigned char *)src;
-	if (!src && !dest)
-		return (dest);
-	while (i < n)
+	new_str = (char *)malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (NULL == new_str)
+		return (NULL);
+	while (i < ft_strlen(str))
 	{
-		tmp_d[i] = tmp_s[i];
+		new_str[i] = str[i];
 		i++;
 	}
-	return (dest);
+	new_str[i] = '\0';
+	return (new_str);
 }

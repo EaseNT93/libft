@@ -1,32 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpants <dpants@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/22 18:22:35 by dpants            #+#    #+#             */
-/*   Updated: 2021/04/22 18:22:35 by dpants           ###   ########.fr       */
+/*   Created: 2021/05/02 22:13:01 by dpants            #+#    #+#             */
+/*   Updated: 2021/05/02 22:13:01 by dpants           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_nlen(int n)
 {
-	size_t			i;
-	unsigned char	*tmp_d;
-	unsigned char	*tmp_s;
+	int		l;
+
+	l = 0;
+	while (n >= 0)
+	{
+		l++;
+		n /= 10;
+		if (n == 0)
+			return (l);
+	}
+	return (l);
+}
+
+char	*ft_itoa(int n)
+{
+	char	str[12];
+	int		i;
 
 	i = 0;
-	tmp_d = (unsigned char *)dest;
-	tmp_s = (unsigned char *)src;
-	if (!src && !dest)
-		return (dest);
-	while (i < n)
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n < 0)
 	{
-		tmp_d[i] = tmp_s[i];
-		i++;
+		str[i++] = '-';
+		n = -n;
 	}
-	return (dest);
+	i += ft_nlen(n);
+	str[i--] = '\0';
+	while (n >= 0)
+	{
+		str[i--] = (n % 10) + '0';
+		n /= 10;
+		if (n == 0)
+			return (ft_strdup(str));
+	}
+	return (ft_strdup(str));
 }
