@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-int		ft_str_len(char *s, char c)
+int	ft_str_len(char *s, char c)
 {
 	int	i;
 
 	i = 0;
-	while (*s && *s != c) 
+	while (*s && *s != c)
 	{
 		s++;
 		i++;
@@ -25,13 +25,15 @@ int		ft_str_len(char *s, char c)
 	return (i);
 }
 
-int		ft_str_count(char *s, char c)
+int	ft_str_count(char *s, char c)
 {
 	int	i;
 	int	f;
 
 	i = 0;
-	f = 0;
+	f = 1;
+	while (*s && *s == c)
+		s++;
 	while (*s)
 	{	
 		if (f)
@@ -68,25 +70,24 @@ char	**ft_free_arr(char **array)
 char	**ft_split(char const *s, char c)
 {
 	char	**array;
-	char	*str;
 	int		str_count;
 	int		i;
 
 	if (!s)
 		return (NULL);
-	str_count = ft_str_count(s, c);
+	str_count = ft_str_count((char *)s, c);
 	array = (char **)malloc(sizeof(char *) * (str_count + 1));
 	if (NULL == array)
 		return (NULL);
 	i = 0;
-	while  (str_count--)
+	while (str_count--)
 	{
 		while (*s && *s == c)
 			s++;
-		array[i] = ft_substr(s, 0, ft_str_len(s, c));
+		array[i] = ft_substr(s, 0, ft_str_len((char *)s, c));
 		if (NULL == array[i])
 			return (ft_free_arr(array));
-		s += ft_str_len(s, c);
+		s += ft_str_len((char *)s, c);
 		i++;
 	}
 	array[i] = NULL;
