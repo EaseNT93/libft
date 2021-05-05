@@ -47,7 +47,11 @@ SRC = ft_bzero.c\
 	ft_putnbr_fd.c\
 	ft_split.c
 
+SRC_B = ft_lstnew.c
+
 OBJ = ${SRC:.c=.o}
+
+OBJ_B = ${SRC_B:.c=.o}
 
 CFLAGS = -Wall -Wextra -Werror -c
 
@@ -62,12 +66,17 @@ ${NAME}: ${OBJ}
 		ar rc $(NAME)
 		ranlib $(NAME)
 
+bonus: ${OBJ} ${OBJ_B} 
+		${CC} ${CFLAGS} ${SRC} ${SRC_B}
+		ar rc $(NAME)
+		ranlib $(NAME)
+
 so:
 	$(CC) -fPIC $(CFLAGS) $(SRC)
 	gcc -shared -o libft.so $(OBJ)
 
 clean:
-		${RM} ${OBJ}
+		${RM} ${OBJ} ${OBJ_B} 
 
 fclean: clean
 		${RM} ${NAME}
