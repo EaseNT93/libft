@@ -72,8 +72,8 @@ bonus: ${OBJ} ${OBJ_B}
 		ranlib $(NAME)
 
 so:
-	$(CC) -fPIC $(CFLAGS) $(SRC)
-	gcc -shared -o libft.so $(OBJ)
+	$(CC) -fPIC $(CFLAGS) $(SRC) ${SRC_B}
+	gcc -shared -o libft.so $(OBJ) ${OBJ_B} 
 
 clean:
 		${RM} ${OBJ} ${OBJ_B} 
