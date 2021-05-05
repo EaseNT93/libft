@@ -20,13 +20,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	list_el = NULL;
 	while (lst)
 	{
-		list = ft_lstnew((*f)(lst->content));
+		list = ft_lstnew(f(lst->content));
 		if (!list)
 		{
-			ft_lstclear((t_list **)list_el, del);
+			ft_lstclear(&list_el, del);
 			return (NULL);
 		}
-		ft_lstadd_back((t_list **)list_el, list);
+		ft_lstadd_back(&list_el, list);
 		lst = lst->next;
 	}
 	return (list_el);
