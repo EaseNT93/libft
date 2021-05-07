@@ -81,6 +81,9 @@ so:
 	$(CC) -fPIC $(CFLAGS) $(SRC) ${SRC_B}
 	gcc -shared -o libft.so $(OBJ) ${OBJ_B} 
 
+norm: 
+	norminette ${SRC} ${SRC_B} *.h
+
 clean:
 		${RM} ${OBJ} ${OBJ_B} 
 

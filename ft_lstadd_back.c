@@ -22,6 +22,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	tmp = *lst;
-	ft_lstlast(tmp);
+	tmp = ft_lstlast(tmp);
 	tmp->next = new;
 }
