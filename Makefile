@@ -71,13 +71,11 @@ all: ${NAME}
 
 ${NAME}: ${OBJ}
 		${CC} ${CFLAGS} ${SRC}
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
+		ar rcs $(NAME) $(OBJ)
 
 bonus: ${OBJ} ${OBJ_B} 
 		${CC} ${CFLAGS} ${SRC} ${SRC_B}
-		ar rc $(NAME) $(OBJ) $(OBJ_B)
-		ranlib $(NAME)
+		ar rcs $(NAME) $(OBJ) $(OBJ_B)
 
 so:
 	$(CC) -fPIC $(CFLAGS) $(SRC) ${SRC_B}
