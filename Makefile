@@ -71,12 +71,12 @@ all: ${NAME}
 
 ${NAME}: ${OBJ}
 		${CC} ${CFLAGS} ${SRC}
-		ar rc $(NAME)
+		ar rc $(NAME) $(OBJ)
 		ranlib $(NAME)
 
 bonus: ${OBJ} ${OBJ_B} 
 		${CC} ${CFLAGS} ${SRC} ${SRC_B}
-		ar rc $(NAME)
+		ar rc $(NAME) $(OBJ) $(OBJ_B)
 		ranlib $(NAME)
 
 so:
