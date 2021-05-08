@@ -67,19 +67,19 @@ CC = gcc
 
 RM = rm -f
 
-all: ${NAME}
+all: $(NAME)
 
-${NAME}: ${OBJ}
-		${CC} ${CFLAGS} ${SRC}
+$(NAME): 
+		$(CC) $(CFLAGS) $(SRC)
 		ar rcs $(NAME) $(OBJ)
 
-bonus: ${OBJ} ${OBJ_B} 
-		${CC} ${CFLAGS} ${SRC} ${SRC_B}
+bonus: 
+		$(CC) $(CFLAGS) $(SRC) $(SRC_B)
 		ar rcs $(NAME) $(OBJ) $(OBJ_B)
 
 so:
-	$(CC) -fPIC $(CFLAGS) $(SRC) ${SRC_B}
-	gcc -shared -o libft.so $(OBJ) ${OBJ_B} 
+	$(CC) -fPIC $(CFLAGS) $(SRC) $(SRC_B)
+	gcc -shared -o libft.so $(OBJ) $(OBJ_B) 
 
 norm: 
 	norminette ${SRC} ${SRC_B} *.h

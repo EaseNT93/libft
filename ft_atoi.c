@@ -33,5 +33,5 @@ int	ft_atoi(const char *str)
 		n = (*str - '0') + n * 10;
 		str++;
 	}
-	return ((int)n * s);
+	return (n * s);
 }
